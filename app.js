@@ -9,6 +9,7 @@ let logger = require('morgan');
 let session = require('express-session');
 let indexRouter = require('./src/routes/index');
 let usersRouter = require('./src/routes/users');
+let singersRouter = require('./src/routes/singers');
 let cdListRouter = require('./src/routes/cd-list');
 let playListRouter = require('./src/routes/cd-list');
 let intercept = require('./src/utils/intercept');
@@ -49,6 +50,7 @@ app.all('/*', intercept);
 app.use('/nodeApi',router);
 
 app.use('/nodeApi/users', usersRouter);
+app.use('/nodeApi/singers',singersRouter)
 app.use('/music/cdList', cdListRouter);
 app.use('/music/playList', playListRouter);
 
