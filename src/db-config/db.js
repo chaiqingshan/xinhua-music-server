@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-const mongoConfig = "mongodb://localhost/xinhua_music";
+const mongoConfig = "mongodb://localhost/sign";
 
 class Db {
     constructor() {
@@ -18,7 +18,7 @@ class Db {
             return this._conn;
         }
         this._conn = mongoose.createConnection(mongoConfig, {
-            useMongoClinet: false
+            // useMongoClinet: false
         });
         this._conn.then(result => {
             console.log('数据库' + mongoConfig + '已连接');

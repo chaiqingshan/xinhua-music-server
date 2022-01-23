@@ -13,6 +13,7 @@ let singersRouter = require('./src/routes/singers');
 let cdListRouter = require('./src/routes/cd-list');
 let playListRouter = require('./src/routes/cd-list');
 let intercept = require('./src/utils/intercept');
+let signerRouter = require('./src/routes/signer');
 
 let app = express();
 
@@ -45,14 +46,14 @@ app.use(function (req, res, next) {
     next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
-app.all('/*', intercept);
-
+// app.all('/*', intercept);
 app.use('/nodeApi',router);
 
 app.use('/nodeApi/users', usersRouter);
 app.use('/nodeApi/singers',singersRouter)
 app.use('/music/cdList', cdListRouter);
 app.use('/music/playList', playListRouter);
+app.use('/nodeApi/signer', signerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
